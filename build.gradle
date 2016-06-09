@@ -15,12 +15,19 @@
  * You should have received a copy of the GNU Affero General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+//apply plugin: 'java'
+//apply plugin: 'groovy'
+
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'jacoco'
+    id 'com.github.kt3k.coveralls' version '2.6.3'
+}
+
 group 'com.github.TSaaP'
 version '1.0-SNAPSHOT'
-
-apply plugin: "jacoco"
-apply plugin: 'java'
-apply plugin: 'groovy'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -39,5 +46,14 @@ dependencies {
     // Use the awesome Spock testing and specification framework even with Java
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
     testCompile 'junit:junit:4.12'
+}
+
+
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
 }
 
