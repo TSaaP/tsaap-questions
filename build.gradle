@@ -27,7 +27,7 @@ plugins {
 }
 
 group 'com.github.TSaaP'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
